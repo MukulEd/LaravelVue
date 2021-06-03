@@ -44,6 +44,7 @@
                 <router-link to="/login">Login</router-link>
             </li>
             <li
+                @click="logout()"
                 v-if="isAuthenticated"
                 class="
                     p-1
@@ -75,9 +76,12 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
     name: "Navbar",
     computed: mapGetters(["isAuthenticated"]),
+    methods: {
+        ...mapActions(["logout"]),
+    },
 };
 </script>
